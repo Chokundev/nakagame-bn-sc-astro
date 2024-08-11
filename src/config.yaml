@@ -9,16 +9,16 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: ThaiUI - AstroWind
+    default: นาคาเกมส์
     template: '%s — ThaiUI'
   description: 'บริการรายงานผลการแข่งขัน สรุปผลการแข่งขัน สรุปอันดับเหรียญ คะแนนการประกวด การแข่งขันกีฬาระหว่างคณะ นาคาเกมส์'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: ThaiUI - AstroWind
+    site_name: นาคาเกมส์
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/meta-image.png'
         width: 1200
         height: 628
     type: website
@@ -69,4 +69,4 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'light:only' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
