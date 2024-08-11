@@ -4,54 +4,25 @@ export const headerData = {
   links: [
     {
       text: 'หน้าแรก',
-      links: [
-        {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
-        },
-        {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
-        },
-        {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
-        },
-        {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
-        },
-      ],
+      href: getPermalink('/'),
     },
     {
       text: 'ข้อมูลนาคาเกมส์',
       links: [
         {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
-        },
-        {
-          text: 'Services',
+          text: 'สัญลักษณ์การแข่งขัน',
           href: getPermalink('/services'),
         },
         {
-          text: 'Pricing',
+          text: 'โปรแกรมการแข่งขัน',
           href: getPermalink('/pricing'),
         },
         {
-          text: 'About us',
+          text: 'ประกาศจากฝ่ายจัดการแข่งขัน',
           href: getPermalink('/about'),
         },
         {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
+          text: 'รูปภาพการแข่งขันที่ผ่านมา',
           href: getPermalink('/privacy'),
         },
       ],
@@ -60,28 +31,44 @@ export const headerData = {
       text: 'ผลการแข่งขัน',
       links: [
         {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
+          text: 'แบดมินตัน ม.ต้น',
+          href: getPermalink('/compet-result/badminton-junior'),
         },
         {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
+          text: 'แบดมินตัน ม.ปลาย',
+          href: getPermalink('/compet-result/badminton-senior'),
         },
         {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
+          text: 'ปิงปอง ม.ต้น',
+          href: getPermalink('/compet-result/table-tennis-junior'),
         },
         {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
+          text: 'ปิงปอง ม.ปลาย',
+          href: getPermalink('/compet-result/table-tennis-senior'),
         },
         {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
+          text: 'วอลเลย์บอล',
+          href: getPermalink('/compet-result/volleyball'),
         },
         {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
+          text: 'บาสเกตบอล',
+          href: getPermalink('/compet-result/basketball'),
+        },
+        {
+          text: 'RoV : Arena Of Valor',
+          href: getPermalink('/compet-result/rov'),
+        },
+        {
+          text: 'PES : E-Football Mobile',
+          href: getPermalink('/compet-result/pes'),
+        },
+        {
+          text: 'ซอคเกอร์ ม.ต้น',
+          href: getPermalink('/compet-result/soccer-junior'),
+        },
+        {
+          text: 'ซอคเกอร์ ม.ปลาย',
+          href: getPermalink('/compet-result/soccer-senior'),
         },
       ],
     },
@@ -89,30 +76,51 @@ export const headerData = {
       text: 'สรุปผลการแข่งขัน',
       links: [
         {
-          text: 'Blog List',
-          href: getBlogPermalink(),
+          text: 'แบดมินตัน ม.ต้น',
+          href: getPermalink('/sum-compet-result/badminton-junior'),
         },
         {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
+          text: 'แบดมินตัน ม.ปลาย',
+          href: getPermalink('/sum-compet-result/badminton-senior'),
         },
         {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
+          text: 'ปิงปอง ม.ต้น',
+          href: getPermalink('/sum-compet-result/table-tennis-junior'),
         },
         {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
+          text: 'ปิงปอง ม.ปลาย',
+          href: getPermalink('/sum-compet-result/table-tennis-senior'),
         },
         {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
+          text: 'วอลเลย์บอล',
+          href: getPermalink('/sum-compet-result/volleyball'),
+        },
+        {
+          text: 'บาสเกตบอล',
+          href: getPermalink('/sum-compet-result/basketball'),
+        },
+        {
+          text: 'RoV : Arena Of Valor',
+          href: getPermalink('/sum-compet-result/rov'),
+        },
+        {
+          text: 'PES : E-Football Mobile',
+          href: getPermalink('/sum-compet-result/pes'),
+        },
+        {
+          text: 'ซอคเกอร์ ม.ต้น',
+          href: getPermalink('/sum-compet-result/soccer-junior'),
+        },
+        {
+          text: 'ซอคเกอร์ ม.ปลาย',
+          href: getPermalink('/sum-compet-result/soccer-senior'),
         },
       ],
     },
     {
       text: 'สรุปอันดับเหรียญ',
       href: getPermalink('/medal-ranking'),
+      
     }
   ],
   actions: [{ text: 'จัดการผลการแข่งขัน', href: 'https://nakagame-mis.bn-sc.cloud', target: '_blank' }],

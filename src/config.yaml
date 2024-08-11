@@ -11,7 +11,7 @@ metadata:
   title:
     default: ThaiUI - AstroWind
     template: '%s — ThaiUI'
-  description: 'Forked from AstroWind. Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.'
+  description: 'บริการรายงานผลการแข่งขัน สรุปผลการแข่งขัน สรุปอันดับเหรียญ คะแนนการประกวด การแข่งขันกีฬาระหว่างคณะ นาคาเกมส์'
   robots:
     index: true
     follow: true
