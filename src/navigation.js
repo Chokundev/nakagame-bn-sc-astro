@@ -15,7 +15,7 @@ export const headerData = {
         },
         {
           text: 'โปรแกรมการแข่งขัน',
-          href: getPermalink('/pricing'),
+          href: getPermalink('/program'),
         },
         {
           text: 'ประกาศจากฝ่ายจัดการแข่งขัน',
