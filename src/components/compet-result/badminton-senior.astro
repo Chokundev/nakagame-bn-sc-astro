@@ -1,0 +1,639 @@
+---
+const response = await fetch('https://api.sheety.co/ee24c7ec5bcd1de3613b55d57ebd634e/nakagameApi/competResult');
+const jsonData = await response.json();
+const competResult = jsonData.competResult || [];
+---
+
+
+<style>
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+html {
+font-size: 15px;
+}
+.blink_me {
+animation: blinker 0.5s linear infinite;
+}
+
+@keyframes blinker {
+50% {
+  opacity: 0;
+}
+}
+
+h5{
+text-align: center;
+}
+.info-msg {
+color: rgb(255, 255, 255);
+background-color: #ff0000;
+text-align: center;
+border-color: #ffffff;
+border-radius: 10px;
+}
+@media (min-width: 38em) {
+html {
+ font-size: 14px;
+}
+}
+@media (min-width: 52em) {
+html {
+ font-size: 15px;
+}
+}
+@media (min-width: 72em) {
+html {
+ font-size: 16px;
+}
+}
+body {
+background-color: #f1f1f1;
+}
+.container {
+width: 90%;
+min-width: 18em;
+margin: 20px auto;
+}
+h1,
+h2 {
+text-align: center;
+}
+h1 {
+font-size: 2rem;
+font-weight: 700;
+margin-bottom: 0.5em;
+}
+h2 {
+font-size: 1.4rem;
+font-weight: 600;
+
+}
+.sr-only {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+border: 0;
+}
+.tournament-bracket {
+display: flex;
+flex-direction: column;
+}
+@media (min-width: 38em) {
+.tournament-bracket {
+ flex-direction: row;
+}
+}
+.tournament-bracket__round {
+display: block;
+margin-left: -3px;
+flex: 1;
+}
+.tournament-bracket__round-title {
+color: #9e9e9e;
+font-size: 0.95rem;
+font-weight: 400;
+text-align: center;
+font-style: italic;
+margin-bottom: 0.5em;
+}
+.tournament-bracket__list {
+display: flex;
+flex-direction: column;
+flex-flow: row wrap;
+justify-content: center;
+height: 100%;
+min-height: 100%;
+border-bottom: 1px dashed #e5e5e5;
+padding-bottom: 2em;
+margin-bottom: 2em;
+transition: padding 0.2s ease-in-out, margin 0.2s ease-in-out;
+}
+@media (max-width: 24em) {
+.tournament-bracket__list {
+ padding-bottom: 1em;
+ margin-bottom: 1em;
+}
+}
+@media (min-width: 38em) {
+.tournament-bracket__list {
+ margin-bottom: 0;
+ padding-bottom: 0;
+ border-right: 1px dashed #e5e5e5;
+ border-bottom: 0;
+}
+}
+.tournament-bracket__round:last-child .tournament-bracket__list {
+border: 0;
+}
+.tournament-bracket__item {
+display: flex;
+flex: 0 1 auto;
+justify-content: center;
+flex-direction: column;
+align-items: flex-start;
+position: relative;
+padding: 2% 0;
+width: 48%;
+transition: padding 0.2s linear;
+}
+.tournament-bracket__item:nth-child(odd) {
+margin-right: 2%;
+}
+.tournament-bracket__item:nth-child(even) {
+margin-left: 2%;
+}
+.tournament-bracket__item::after {
+transition: width 0.2s linear;
+}
+@media (max-width: 24em) {
+.tournament-bracket__item {
+ width: 100%;
+}
+.tournament-bracket__item:nth-child(odd),
+.tournament-bracket__item:nth-child(even) {
+ margin-left: 0;
+ margin-right: 0;
+}
+}
+@media (min-width: 38em) {
+.tournament-bracket__item {
+ padding: 0.5em 1em;
+ width: 100%;
+}
+.tournament-bracket__item:nth-child(odd),
+.tournament-bracket__item:nth-child(even) {
+ margin: 0;
+}
+.tournament-bracket__item::after {
+ position: absolute;
+ right: 0;
+ content: '';
+ display: block;
+ width: 1em;
+ height: 45%;
+ border-right: 2px solid #9e9e9e;
+}
+.tournament-bracket__item:nth-child(odd)::after {
+ top: 50%;
+ border-top: 2px solid #9e9e9e;
+ -webkit-transform: translateY(-1px);
+         transform: translateY(-1px);
+}
+.tournament-bracket--rounded .tournament-bracket__item:nth-child(odd)::after {
+ border-top-right-radius: 0.6em;
+}
+.tournament-bracket__item:nth-child(even)::after {
+ bottom: 50%;
+ border-bottom: 2px solid #9e9e9e;
+ -webkit-transform: translateY(1px);
+         transform: translateY(1px);
+}
+.tournament-bracket--rounded .tournament-bracket__item:nth-child(even)::after {
+ border-bottom-right-radius: 0.6em;
+}
+.tournament-bracket__round:first-child .tournament-bracket__item {
+ padding-left: 0;
+}
+.tournament-bracket__round:last-child .tournament-bracket__item {
+ padding-right: 0;
+}
+.tournament-bracket__round:last-child .tournament-bracket__item::after {
+ display: none;
+}
+.tournament-bracket__round:nth-last-child(2) .tournament-bracket__item::after {
+ border-radius: 0;
+ border-right: 0;
+}
+}
+@media (min-width: 72em) {
+.tournament-bracket__item {
+ padding: 0.5em 1.5em;
+}
+.tournament-bracket__item::after {
+ width: 1.5em;
+}
+}
+.tournament-bracket__match {
+display: flex;
+width: 100%;
+background-color: #ffffff;
+padding: 1em;
+border: 1px solid transparent;
+border-radius: 0.1em;
+box-shadow: 0 2px 0 0 #e5e5e5;
+outline: none;
+cursor: pointer;
+transition: padding 0.2s ease-in-out, border 0.2s linear;
+}
+.tournament-bracket__match:focus {
+border-color: #2196F3;
+}
+.tournament-bracket__match::before,
+.tournament-bracket__match::after {
+transition: all 0.2s linear;
+}
+@media (max-width: 24em) {
+.tournament-bracket__match {
+ padding: 0.75em 0.5em;
+}
+}
+@media (min-width: 38em) {
+.tournament-bracket__match::before,
+.tournament-bracket__match::after {
+ position: absolute;
+ left: 0;
+ z-index: 1;
+ content: '';
+ display: block;
+ width: 1em;
+ height: 10%;
+ border-left: 2px solid #9e9e9e;
+}
+.tournament-bracket__match::before {
+ bottom: 50%;
+ border-bottom: 2px solid #9e9e9e;
+ -webkit-transform: translate(0, 1px);
+         transform: translate(0, 1px);
+}
+.tournament-bracket--rounded .tournament-bracket__match::before {
+ border-bottom-left-radius: 0.6em;
+}
+.tournament-bracket__match::after {
+ top: 50%;
+ border-top: 2px solid #9e9e9e;
+ -webkit-transform: translate(0, -1px);
+         transform: translate(0, -1px);
+}
+.tournament-bracket--rounded .tournament-bracket__match::after {
+ border-top-left-radius: 0.6em;
+}
+}
+@media (min-width: 72em) {
+.tournament-bracket__match::before,
+.tournament-bracket__match::after {
+ width: 1.5em;
+}
+.tournament-bracket__match::before {
+ -webkit-transform: translate(0, 1px);
+         transform: translate(0, 1px);
+}
+.tournament-bracket__match::after {
+ -webkit-transform: translate(0, -1px);
+         transform: translate(0, -1px);
+}
+}
+.tournament-bracket__round:last-child .tournament-bracket__match::before,
+.tournament-bracket__round:last-child .tournament-bracket__match::after {
+border-left: 0;
+}
+.tournament-bracket__round:last-child .tournament-bracket__match::before {
+border-bottom-left-radius: 0;
+}
+.tournament-bracket__round:last-child .tournament-bracket__match::after {
+display: none;
+}
+.tournament-bracket__round:first-child .tournament-bracket__match::before,
+.tournament-bracket__round:first-child .tournament-bracket__match::after {
+display: none;
+}
+.tournament-bracket__content {
+display: flex;
+}
+.tournament-bracket__content::after {
+content: ':';
+width: 1em;
+text-align: center;
+padding: 0.2em 0.1em;
+}
+@media (min-width: 38em) {
+.tournament-bracket__content::after {
+ order: 1;
+}
+}
+.tournament-bracket__content .tournament-bracket__team:first-child {
+width: 50%;
+order: 0;
+text-align: right;
+}
+@media (min-width: 38em) and (max-width: 52em) {
+.tournament-bracket__content .tournament-bracket__team:first-child {
+ align-items: flex-end;
+}
+}
+.tournament-bracket__content .tournament-bracket__team:first-child .tournament-bracket__country {
+order: 2;
+justify-content: flex-end;
+}
+@media (min-width: 24em) {
+.tournament-bracket__content .tournament-bracket__team:first-child .tournament-bracket__country {
+ order: 0;
+}
+}
+@media (min-width: 38em) and (max-width: 52em) {
+.tournament-bracket__content .tournament-bracket__team:first-child .tournament-bracket__country {
+ flex-direction: column-reverse;
+ align-items: flex-end;
+}
+}
+.tournament-bracket__content .tournament-bracket__team:first-child .tournament-bracket__score {
+order: 0;
+}
+@media (min-width: 24em) {
+.tournament-bracket__content .tournament-bracket__team:first-child .tournament-bracket__score {
+ order: 2;
+}
+}
+.tournament-bracket__content .tournament-bracket__team:last-child {
+width: 50%;
+order: 2;
+text-align: left;
+}
+@media (min-width: 38em) and (max-width: 52em) {
+.tournament-bracket__content .tournament-bracket__team:last-child {
+ align-items: flex-start;
+}
+}
+@media (min-width: 38em) {
+.tournament-bracket__content .tournament-bracket__team:last-child .tournament-bracket__country {
+ justify-content: flex-start;
+}
+}
+@media (min-width: 38em) and (max-width: 52em) {
+.tournament-bracket__content .tournament-bracket__team:last-child .tournament-bracket__country {
+ align-items: flex-start;
+}
+}
+.tournament-bracket__content .tournament-bracket__team:last-child .tournament-bracket__code {
+order: 1;
+}
+.tournament-bracket__table {
+width: 100%;
+}
+.tournament-bracket__caption {
+font-size: 0.8rem;
+color: #000000;
+font-weight: 300;
+padding-bottom: 0.75em;
+}
+.tournament-bracket__team {
+display: flex;
+flex-direction: row-reverse;
+justify-content: space-between;
+}
+@media (min-width: 24em) {
+.tournament-bracket__team {
+ flex-direction: column-reverse;
+}
+}
+@media (min-width: 38em) {
+.tournament-bracket__team {
+ flex-direction: column-reverse;
+}
+}
+.tournament-bracket__country {
+font-size: 0.95rem;
+display: flex;
+margin-top: 0.5em;
+align-items: center;
+}
+@media (max-width: 24em) {
+.tournament-bracket__country {
+ margin-top: 0;
+}
+}
+@media (min-width: 38em) and (max-width: 52em) {
+.tournament-bracket__country {
+ display: flex;
+ flex-direction: column;
+}
+.tournament-bracket__country .tournament-bracket__code {
+ margin-top: 0.2em;
+}
+}
+.tournament-bracket__code {
+padding: 0 0.5em;
+color: #212121;
+font-weight: 600;
+text-transform: uppercase;
+border: 0;
+text-decoration: none;
+cursor: help;
+transition: padding 0.2s ease-in-out;
+}
+@media (max-width: 24em) {
+.tournament-bracket__code {
+ padding: 0 0.25em;
+}
+}
+@media (min-width: 38em) and (max-width: 52em) {
+.tournament-bracket__code {
+ padding: 0;
+}
+}
+.tournament-bracket__score {
+display: flex;
+align-items: center;
+}
+.tournament-bracket__team:first-child .tournament-bracket__score {
+flex-direction: row-reverse;
+padding-left: 0.75em;
+}
+.tournament-bracket__team:last-child .tournament-bracket__score {
+padding-right: 0.75em;
+}
+.tournament-bracket__number {
+display: inline-block;
+padding: 0.2em 0.4em 0.2em;
+border-bottom: 0.075em solid transparent;
+font-size: 0.95rem;
+background-color: #F5F5F5;
+border-color: #dddddd;
+}
+/* .tournament-bracket__team--winner .tournament-bracket__number {
+background-color: #FFF176;
+border-color: #fad674;
+} */
+.tournament-bracket__medal {
+padding: 0 0.5em;
+}
+.tournament-bracket__medal--gold {
+color: #FFD700;
+}
+.tournament-bracket__medal--silver {
+color: #C0C0C0;
+}
+.tournament-bracket__medal--bronze {
+color: #CD7F32;
+}
+
+</style>
+
+<div class="w-full max-w-sm mx-auto mt-24 mb-24 bg-white shadow-lg rounded-sm border border-gray-200">
+    <header>
+      <h2>ผลการแข่งขัน <span id="type">{competResult[1]?.type}</span></h2>
+    </header>
+  
+    <div class="tournament-bracket__match" tabindex="0">
+      <table class="tournament-bracket__table">
+        <caption class="tournament-bracket__caption">
+          <strong>คู่ที่ 1</strong>
+        </caption>
+        <tbody class="tournament-bracket__content">
+          <tr class="tournament-bracket__team tournament-bracket__team--winner">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Canada" id="name1_1">{competResult[1]?.name11}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point1_1">{competResult[1]?.point11}</span>
+            </td>
+          </tr>
+          <tr class="tournament-bracket__team">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name1_2">{competResult[1]?.name12}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point1_2">{competResult[1]?.point12}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <br>
+  
+    <div class="tournament-bracket__match" tabindex="0">
+      <table class="tournament-bracket__table">
+        <caption class="tournament-bracket__caption">
+          <strong>คู่ที่ 2</strong>
+        </caption>
+        <tbody class="tournament-bracket__content">
+          <tr class="tournament-bracket__team tournament-bracket__team--winner">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Canada" id="name2_1">{competResult[1]?.name21}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point2_1">{competResult[1]?.point21}</span>
+            </td>
+          </tr>
+          <tr class="tournament-bracket__team">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name2_2">{competResult[1]?.name22}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point2_2">{competResult[1]?.point22}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <br>
+  
+    <div class="tournament-bracket__match" tabindex="0">
+      <table class="tournament-bracket__table">
+        <caption class="tournament-bracket__caption">
+          <strong>คู่ที่ 3</strong>
+        </caption>
+        <tbody class="tournament-bracket__content">
+          <tr class="tournament-bracket__team tournament-bracket__team--winner">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Canada" id="name3_1">{competResult[1]?.name31}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point3_1">{competResult[1]?.point31}</span>
+            </td>
+          </tr>
+          <tr class="tournament-bracket__team">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name3_2">{competResult[1]?.name32}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point3_2">{competResult[1]?.point32}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <br>
+  
+    <div class="tournament-bracket__match" tabindex="0">
+      <table class="tournament-bracket__table">
+        <caption class="tournament-bracket__caption">
+          <strong>คู่ที่ 4 (ชิงที่ 3)</strong>
+        </caption>
+        <tbody class="tournament-bracket__content">
+          <tr class="tournament-bracket__team tournament-bracket__team--winner">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Canada" id="name4_1">{competResult[1]?.name41}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point4_1">{competResult[1]?.point41}</span>
+            </td>
+          </tr>
+          <tr class="tournament-bracket__team">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name4_2">{competResult[1]?.name42}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point4_2">{competResult[1]?.point42}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <br>
+  
+    <div class="tournament-bracket__match" tabindex="0">
+      <table class="tournament-bracket__table">
+        <caption class="tournament-bracket__caption">
+          <strong>คู่ที่ 5 (ชิงชนะเลิศ)</strong>
+        </caption>
+        <tbody class="tournament-bracket__content">
+          <tr class="tournament-bracket__team tournament-bracket__team--winner">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Canada" id="name5_1">{competResult[1]?.name51}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point5_1">{competResult[1]?.point51}</span>
+            </td>
+          </tr>
+          <tr class="tournament-bracket__team">
+            <td class="tournament-bracket__country">
+              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name5_2">{competResult[1]?.name52}</abbr>
+              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+            </td>
+            <td class="tournament-bracket__score">
+              <span class="tournament-bracket__number" id="point5_2">{competResult[1]?.point52}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <br>
+  
+    <footer>
+      <div class="info-msg">
+        <h3 class="blink_me">สถานะการแข่งขัน : <span id="status">{competResult[1]?.status}</span></h3>
+      </div>
+    </footer>
+  </div>

@@ -11,7 +11,7 @@ export const headerData = {
       links: [
         {
           text: 'สัญลักษณ์การแข่งขัน',
-          href: getPermalink('/services'),
+          href: getPermalink('/competition-symbol'),
         },
         {
           text: 'โปรแกรมการแข่งขัน',
@@ -23,7 +23,7 @@ export const headerData = {
         },
         {
           text: 'รูปภาพการแข่งขันที่ผ่านมา',
-          href: getPermalink('/privacy'),
+          href: getPermalink('/gallery'),
         },
       ],
     },

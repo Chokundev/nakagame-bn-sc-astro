@@ -1,0 +1,24 @@
+---
+
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'สัญลักษณ์การแข่งขัน นาคาเกมส์',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    title='สัญลักษณ์การแข่งขัน'
+    subtitle='การแข่งขันกีฬาระหว่างคณะ นาคาเกมส์'
+    image={{
+      src: 'https://medalrank-nakagame42.pages.dev/img/info-nakagames-logo.png',
+      alt: 'สัญลักษณ์การแข่งขัน นาคาเกมส์',
+    }}
+  />
+
+
+</Layout>
