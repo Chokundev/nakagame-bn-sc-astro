@@ -1,10 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
+import Content from '~/components/widgets/Content.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Countdown from '~/components/countdown.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 
 
 const metadata = {
@@ -29,55 +30,66 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
+ 
+  <Countdown />
 
-  <Note />
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'รายงานผลการแข่งขันตามประเภทกีฬา',
+        description:
+          'รายงานผลการแข่งขันตามประเภทกีฬา หากกีฬายังแข่งขันไม่เสร็จสิ้นหรือเสร็จสิ้นแล้ว ผู็ใช้สามารถให้ไลน์บอท รายงานผลคะแนนการแข่งขันของแต่ละรอบได้ทันที',
+        icon: 'tabler:presentation',
+      },
+      {
+        title: 'รายงานสรุปผลการแข่งขันตามประเภทกีฬา',
+        description:
+          'รายงานสรุปผลการแข่งขันแต่ละประเภทกีฬา เมื่อกีฬาประเภทนั้นแข่งขันเสร็จ ผูัใช้งานสามารถให้ไลน์บอทรายงานอันดับผลการแข่งขันได้ทันที',
+        icon: 'tabler:presentation',
+      },
+      {
+        title: 'รายงานสรุปอันดับเหรียญ',
+        description:
+          'รายงานสรุปอันดับเหรียญของการแข่งขันกีฬาระหว่างคณะ โดยเรียงลำดับจากคะแนนเหรียญ',
+        icon: 'tabler:presentation',
+      },
+      {
+        title: 'สะดวก รวดเร็ว ทันที',
+        description:
+          'เมื่อฝ่ายจัดการแข่งขันบันทึกผลการแข่งขันลงในระบบ ไลน์บอทสามารถดึงผลการแข่งขันมาแสดงได้ทันที !!',
+        icon: 'tabler:carousel-horizontal',
+      },
+    ]}
+    image={{
+      src: 'https://medalrank-nakagame42.pages.dev/img/pr-linebot-nakagame.png',
+      alt: 'Features Image',
+    }}
+  >
+    <Fragment slot='content'>
+      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>ไลน์บอท นาคาเกมส์ (์NAKAGAME-BOT)</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  
+
+
+  <Hero2
+    title='ภาพการแข่งขันที่ผ่านมา'
+    subtitle='ภาพขณะตัวแทนนักกีฬานำกล่าวคำปฏิญาณ ในพิธีเปิดการแข่งขันกีฬาระหว่างคณะ นาคาเกมส์'
+    actions={[
+      { variant: 'primary', text: 'ไปที่แกลเลอรี่', href: '/gallery', icon: 'tabler:square-rounded-arrow-right' },
+    ]}
+    image={{
+      src: 'https://medalrank-nakagame42.pages.dev/img/nakagame42/1.png',
+      alt: 'Ironic image associated with canceling a subscription. Subscription Landing Page Demo',
+    }}
+  />
 
   <!-- Features Widget *************** -->
 
-  <Features
-    id='features'
-    title='บริการภายในเว็บไซต์นาคาเกมส์'
-    subtitle='One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022.'
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
 
 
 
@@ -86,66 +98,6 @@ const metadata = {
 
   <!-- Features2 Widget ************** -->
 
-  <Features2
-    title='ข้อมูลทั่วไป'
-    subtitle='Provides frequently used components for building websites using Tailwind CSS'
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot='bg'>
-      <div class='absolute inset-0 bg-blue-50 dark:bg-transparent'></div>
-    </Fragment>
-  </Features2>
 
 
 

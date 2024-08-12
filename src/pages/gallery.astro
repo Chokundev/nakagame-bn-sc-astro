@@ -3,6 +3,7 @@
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import Gallery from '~/components/gallery.astro';
+import ImageSlide from '~/components/image-slide.astro';
 
 const metadata = {
   title: 'ภาพการแข่งขันที่ผ่านมา',
@@ -12,10 +13,13 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
+
   <Hero
     title='ภาพการแข่งขันที่ผ่านมา'
     subtitle='การแข่งขันกีฬาระหว่างคณะ นาคาเกมส์'
   />
+
+  <ImageSlide />
 
   <Gallery />
 
