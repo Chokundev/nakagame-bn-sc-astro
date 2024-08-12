@@ -19,7 +19,7 @@ export const headerData = {
         },
         {
           text: 'ประกาศจากฝ่ายจัดการแข่งขัน',
-          href: getPermalink('/about'),
+          href: getPermalink('/annouce'),
         },
         {
           text: 'รูปภาพการแข่งขันที่ผ่านมา',

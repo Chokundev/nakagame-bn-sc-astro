@@ -1,0 +1,34 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'ประกาศจากฝ่ายจัดการแข่งขัน นาคาเกมส์',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="ประกาศจากฝ่ายจัดการแข่งขัน"
+    subtitle="การแข่งขันกีฬาระหว่างคณะ นาคาเกมส์"
+  />
+
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="-ยังไม่พบประกาศจากฝ่ายจัดการแข่งขัน-"
+    subtitle="ขณะนี้ยังไม่มีประกาศจากฝ่ายจัดการแข่งขัน"
+    columns={2}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+
+</Layout>
