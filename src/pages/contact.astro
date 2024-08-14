@@ -12,67 +12,48 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <HeroText title="ติดต่อทีมงาน" />
 
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
+    title="ส่งข้อความติดต่อหาเราได้เลยวันนี้!"
+    subtitle="หากต้องการคำตอบที่รวดเร็วยิ่งขึ้น โปรดสำรวจ คำถามที่พบบ่อยของเรา คุณอาจพบวิธีการแก้ปัญหาที่คุณกำลังมองหาได้ทันที! หากไม่พบ ทีมสนับสนุนของเรายินดีที่จะช่วยเหลือคุณ"
+    
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="We are here to help!"
+    title="ช่องทางติดต่อทั้งหมดของเรา"
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+        title: 'การสนับสนุนทั่วไป',
+        description: `คุณสามารถส่งข้อความหรือปัญหาของคุณถึงเราได้ผ่านบัญชีไลน์ทางการของ NAKAGAME-SUPPORT`,
       },
       {
-        title: 'Contact sales',
+        title: 'การสนับสนุนด้านเทคนิค',
         description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+          'คุณสามารถแจ้งปัญหาเว็บไซต์หรือปัญหาอื่นๆในด้านเทคนิคได้ผ่านระบบ Google Form รับแจ้งปัญหา',
       },
       {
-        title: 'Technical support',
+        title: 'ติดต่อคณะกรรมการนักเรียน',
         description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+          'คุณสามารถติดต่อสอบถามเรื่องอื่นๆเกี่ยวกับกีฬาคณะ หรือข้อสงสัยต่างๆได้ที่ Facebook , Instagram หรืออีเมลทางการของคณะกรรมการนักเรียน',
       },
       {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
+        title: 'Line Official',
+        description: '	@036znehq',
+        icon: 'tabler:link',
+      },
+      {
+        title: 'Google Form',
+        description: 'bit.ly/nakagame-suppt',
+        icon: 'tabler:link',
       },
       {
         title: 'Email',
-        description: 'contact@support.com',
+        description: 'studentcomission@bn.ac.th',
         icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
       },
     ]}
   />

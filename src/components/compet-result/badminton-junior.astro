@@ -1,5 +1,5 @@
 ---
-const response = await fetch('https://api.sheety.co/ee24c7ec5bcd1de3613b55d57ebd634e/nakagameApi/competResult');
+const response = await fetch('https://script.google.com/macros/s/AKfycbxAI-0Xi5Rpk_PhkZSzCwZk8iedh3nL8fy6-FN2G5IQmwfy8GQS9pJoq2V4BupS5WUm/exec');
 const jsonData = await response.json();
 const competResult = jsonData.competResult || [];
 ---
@@ -477,163 +477,163 @@ color: #CD7F32;
 </style>
 
 <div class="w-full max-w-sm mx-auto mt-24 bg-white shadow-lg rounded-sm border border-gray-200">
-    <header>
-      <h2>ผลการแข่งขัน <span id="type">{competResult[0]?.type}</span></h2>
-    </header>
-  
-    <div class="tournament-bracket__match" tabindex="0">
-      <table class="tournament-bracket__table">
-        <caption class="tournament-bracket__caption">
-          <strong>คู่ที่ 1</strong>
-        </caption>
-        <tbody class="tournament-bracket__content">
-          <tr class="tournament-bracket__team tournament-bracket__team--winner">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Canada" id="name1_1">{competResult[0]?.name11}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point1_1">{competResult[0]?.point11}</span>
-            </td>
-          </tr>
-          <tr class="tournament-bracket__team">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name1_2">{competResult[0]?.name12}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point1_2">{competResult[0]?.point12}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <br>
-  
-    <div class="tournament-bracket__match" tabindex="0">
-      <table class="tournament-bracket__table">
-        <caption class="tournament-bracket__caption">
-          <strong>คู่ที่ 2</strong>
-        </caption>
-        <tbody class="tournament-bracket__content">
-          <tr class="tournament-bracket__team tournament-bracket__team--winner">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Canada" id="name2_1">{competResult[0]?.name21}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point2_1">{competResult[0]?.point21}</span>
-            </td>
-          </tr>
-          <tr class="tournament-bracket__team">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name2_2">{competResult[0]?.name22}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point2_2">{competResult[0]?.point22}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <br>
-  
-    <div class="tournament-bracket__match" tabindex="0">
-      <table class="tournament-bracket__table">
-        <caption class="tournament-bracket__caption">
-          <strong>คู่ที่ 3</strong>
-        </caption>
-        <tbody class="tournament-bracket__content">
-          <tr class="tournament-bracket__team tournament-bracket__team--winner">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Canada" id="name3_1">{competResult[0]?.name31}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point3_1">{competResult[0]?.point31}</span>
-            </td>
-          </tr>
-          <tr class="tournament-bracket__team">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name3_2">{competResult[0]?.name32}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point3_2">{competResult[0]?.point32}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <br>
-  
-    <div class="tournament-bracket__match" tabindex="0">
-      <table class="tournament-bracket__table">
-        <caption class="tournament-bracket__caption">
-          <strong>คู่ที่ 4 (ชิงที่ 3)</strong>
-        </caption>
-        <tbody class="tournament-bracket__content">
-          <tr class="tournament-bracket__team tournament-bracket__team--winner">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Canada" id="name4_1">{competResult[0]?.name41}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point4_1">{competResult[0]?.point41}</span>
-            </td>
-          </tr>
-          <tr class="tournament-bracket__team">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name4_2">{competResult[0]?.name42}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point4_2">{competResult[0]?.point42}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <br>
-  
-    <div class="tournament-bracket__match" tabindex="0">
-      <table class="tournament-bracket__table">
-        <caption class="tournament-bracket__caption">
-          <strong>คู่ที่ 5 (ชิงชนะเลิศ)</strong>
-        </caption>
-        <tbody class="tournament-bracket__content">
-          <tr class="tournament-bracket__team tournament-bracket__team--winner">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Canada" id="name5_1">{competResult[0]?.name51}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point5_1">{competResult[0]?.point51}</span>
-            </td>
-          </tr>
-          <tr class="tournament-bracket__team">
-            <td class="tournament-bracket__country">
-              <abbr class="tournament-bracket__code" title="Kazakhstan" id="name5_2">{competResult[0]?.name52}</abbr>
-              <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
-            </td>
-            <td class="tournament-bracket__score">
-              <span class="tournament-bracket__number" id="point5_2">{competResult[0]?.point52}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <br>
-  
-    <footer>
-      <div class="info-msg">
-        <h3 class="blink_me">สถานะการแข่งขัน : <span id="status">{competResult[0]?.status}</span></h3>
-      </div>
-    </footer>
+  <header>
+    <h2>ผลการแข่งขัน <span id="type">{competResult[0]?.type}</span></h2>
+  </header>
+
+  <div class="tournament-bracket__match" tabindex="0">
+    <table class="tournament-bracket__table">
+      <caption class="tournament-bracket__caption">
+        <strong>คู่ที่ 1</strong>
+      </caption>
+      <tbody class="tournament-bracket__content">
+        <tr class="tournament-bracket__team tournament-bracket__team--winner">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Canada" id="name1_1">{competResult[0]?.name11}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point1_1">{competResult[0]?.point11}</span>
+          </td>
+        </tr>
+        <tr class="tournament-bracket__team">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Kazakhstan" id="name1_2">{competResult[0]?.name12}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point1_2">{competResult[0]?.point12}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+  <br>
+
+  <div class="tournament-bracket__match" tabindex="0">
+    <table class="tournament-bracket__table">
+      <caption class="tournament-bracket__caption">
+        <strong>คู่ที่ 2</strong>
+      </caption>
+      <tbody class="tournament-bracket__content">
+        <tr class="tournament-bracket__team tournament-bracket__team--winner">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Canada" id="name2_1">{competResult[0]?.name21}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point2_1">{competResult[0]?.point21}</span>
+          </td>
+        </tr>
+        <tr class="tournament-bracket__team">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Kazakhstan" id="name2_2">{competResult[0]?.name22}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point2_2">{competResult[0]?.point22}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <div class="tournament-bracket__match" tabindex="0">
+    <table class="tournament-bracket__table">
+      <caption class="tournament-bracket__caption">
+        <strong>คู่ที่ 3</strong>
+      </caption>
+      <tbody class="tournament-bracket__content">
+        <tr class="tournament-bracket__team tournament-bracket__team--winner">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Canada" id="name3_1">{competResult[0]?.name31}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point3_1">{competResult[0]?.point31}</span>
+          </td>
+        </tr>
+        <tr class="tournament-bracket__team">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Kazakhstan" id="name3_2">{competResult[0]?.name32}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point3_2">{competResult[0]?.point32}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <div class="tournament-bracket__match" tabindex="0">
+    <table class="tournament-bracket__table">
+      <caption class="tournament-bracket__caption">
+        <strong>คู่ที่ 4 (ชิงที่ 3)</strong>
+      </caption>
+      <tbody class="tournament-bracket__content">
+        <tr class="tournament-bracket__team tournament-bracket__team--winner">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Canada" id="name4_1">{competResult[0]?.name41}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point4_1">{competResult[0]?.point41}</span>
+          </td>
+        </tr>
+        <tr class="tournament-bracket__team">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Kazakhstan" id="name4_2">{competResult[0]?.name42}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point4_2">{competResult[0]?.point42}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <div class="tournament-bracket__match" tabindex="0">
+    <table class="tournament-bracket__table">
+      <caption class="tournament-bracket__caption">
+        <strong>คู่ที่ 5 (ชิงชนะเลิศ)</strong>
+      </caption>
+      <tbody class="tournament-bracket__content">
+        <tr class="tournament-bracket__team tournament-bracket__team--winner">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Canada" id="name5_1">{competResult[0]?.name51}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-ca" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point5_1">{competResult[0]?.point51}</span>
+          </td>
+        </tr>
+        <tr class="tournament-bracket__team">
+          <td class="tournament-bracket__country">
+            <abbr class="tournament-bracket__code" title="Kazakhstan" id="name5_2">{competResult[0]?.name52}</abbr>
+            <span class="tournament-bracket__flag flag-icon flag-icon-kz" aria-label="Flag"></span>
+          </td>
+          <td class="tournament-bracket__score">
+            <span class="tournament-bracket__number" id="point5_2">{competResult[0]?.point52}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <footer>
+    <div class="info-msg">
+      <h3 class="blink_me">สถานะการแข่งขัน : <span id="status">{competResult[0]?.status}</span></h3>
+    </div>
+  </footer>
+</div>

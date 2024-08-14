@@ -127,63 +127,49 @@ export const headerData = {
 };
 
 export const footerData = {
-  // links: [
-  //   {
-  //     title: 'Product',
-  //     links: [
-  //       { text: 'Features', href: '#' },
-  //       { text: 'Security', href: '#' },
-  //       { text: 'Team', href: '#' },
-  //       { text: 'Enterprise', href: '#' },
-  //       { text: 'Customer stories', href: '#' },
-  //       { text: 'Pricing', href: '#' },
-  //       { text: 'Resources', href: '#' },
-  //     ],
-  //   },
-  //   {
-  //     title: 'Platform',
-  //     links: [
-  //       { text: 'Developer API', href: '#' },
-  //       { text: 'Partners', href: '#' },
-  //       { text: 'Atom', href: '#' },
-  //       { text: 'Electron', href: '#' },
-  //       { text: 'AstroWind Desktop', href: '#' },
-  //     ],
-  //   },
-  //   {
-  //     title: 'Support',
-  //     links: [
-  //       { text: 'Docs', href: '#' },
-  //       { text: 'Community Forum', href: '#' },
-  //       { text: 'Professional Services', href: '#' },
-  //       { text: 'Skills', href: '#' },
-  //       { text: 'Status', href: '#' },
-  //     ],
-  //   },
-  //   {
-  //     title: 'Company',
-  //     links: [
-  //       { text: 'About', href: '#' },
-  //       { text: 'Blog', href: '#' },
-  //       { text: 'Careers', href: '#' },
-  //       { text: 'Press', href: '#' },
-  //       { text: 'Inclusion', href: '#' },
-  //       { text: 'Social Impact', href: '#' },
-  //       { text: 'Shop', href: '#' },
-  //     ],
-  //   },
-  // ],
+  links: [
+    {
+      title: 'สำหรับนักเรียนและครู',
+      links: [
+        { text: 'NAKAGAME-BOT', href: 'https://lin.ee/IzwtFqf' },
+        { text: 'ผลการแข่งขัน', href: '#' },
+        { text: 'สรุปผลการแข่งขัน', href: '#' },
+        { text: 'สรุปอันดับเหรียญ', href: '/medal-ranking' },
+      ],
+    },
+    {
+      title: 'สำหรับฝ่ายจัดการแข่งขัน',
+      links: [
+        { text: 'ระบบจัดการผลการแข่งขัน', href: 'https://nakagame-mis.bn-sc.cloud' },
+        { text: 'คู่มือการใช้งานระบบ', href: 'https://drive.google.com/file/d/1kkGXFoyl3Ds-LUCtBSTrgsFIvr0GAURm/view' },
+        { text: 'วิดีโอสาธิตการใช้งานระบบ', href: 'https://youtu.be/UBLQjjdjiUE' },
+      ],
+    },
+    {
+      title: 'สำหรับผู้ดูแลระบบ',
+      links: [
+        { text: 'ระบบจัดการผลการแข่งขัน', href: 'https://nakagame-mis.bn-sc.cloud' },
+        { text: 'สถานะเว็บไซต์', href: 'https://status.bn-sc.cloud' },
+        { text: 'สถานะส่วนเสริมเว็บไซต์', href: 'https://api-status.bn-sc.cloud' },
+        { text: 'Api นักพัฒนาระบบ', href: 'https://nakagame-api.bn-sc.cloud' },
+      ],
+    },
+    {
+      title: 'ติดต่อเรา',
+      links: [
+        { text: 'ติดต่อ', href: '/contact' },
+      ],
+    },
+  ],
   // secondaryLinks: [
   //   { text: 'Terms', href: getPermalink('/terms') },
   //   { text: 'Privacy Policy', href: getPermalink('/privacy') },
   // ],
   socialLinks: [
-    // { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    // { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/ThaiUI/astrowind' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/bn_sc.official/' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/bncommission' },
   ],
   footNote: `
-    2023-2024 &copy <a class="text-blue-600 underline dark:text-muted" href="https://www.instagram.com/teera.chanon">ธีรชานนท์ พวงเงิน</a> · All rights reserved.
+    2024 &copy <a class="text-blue-600 underline dark:text-muted" href="https://www.instagram.com/teera.chanon">ธีรชานนท์ พวงเงิน</a> · All rights reserved.
   `,
 };
