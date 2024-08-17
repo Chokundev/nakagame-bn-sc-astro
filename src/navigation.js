@@ -150,7 +150,7 @@ export const footerData = {
       links: [
         { text: 'ระบบจัดการผลการแข่งขัน', href: 'https://nakagame-mis.bn-sc.cloud' },
         { text: 'สถานะเว็บไซต์', href: 'https://status.bn-sc.cloud' },
-        { text: 'สถานะส่วนเสริมเว็บไซต์', href: 'https://api-status.bn-sc.cloud' },
+        { text: 'สถานะส่วนเสริมเว็บไซต์', href: 'https://nakagame-api-status.bn-sc.cloud/' },
         { text: 'API สำหรับนักพัฒนาระบบ', href: 'https://nakagame-api.bn-sc.cloud' },
       ],
     },
