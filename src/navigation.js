@@ -175,6 +175,6 @@ export const footerData = {
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/bncommission' },
   ],
   footNote: `
-    2024 &copy <a class="text-blue-600 underline dark:text-muted" href="https://www.instagram.com/teera.chanon">ธีรชานนท์ พวงเงิน</a> · All rights reserved.
+    2024 &copy พัฒนาระบบโดย : <a class="text-blue-600 underline dark:text-muted" href="https://www.instagram.com/teera.chanon">ธีรชานนท์ พวงเงิน</a>.
   `,
 };
