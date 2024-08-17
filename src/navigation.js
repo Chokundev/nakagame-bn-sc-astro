@@ -135,6 +135,7 @@ export const footerData = {
         { text: 'ผลการแข่งขัน', href: '#' },
         { text: 'สรุปผลการแข่งขัน', href: '#' },
         { text: 'สรุปอันดับเหรียญ', href: '/medal-ranking' },
+        { text: 'ติดตามสถานะการแจ้งปัญหา', href: 'http://report.bn-sc.cloud/' },
       ],
     },
     {
@@ -159,6 +160,7 @@ export const footerData = {
       links: [
         { text: 'ติดต่อ', href: '/contact' },
         { text: 'แจ้งเว็บไซต์มีปัญหา', href: 'https://bit.ly/nakagame-suppt' },
+        { text: 'ติดตามสถานะการแจ้งปัญหา', href: 'http://report.bn-sc.cloud/' },
         { text: 'Line : Support', href: 'https://lin.ee/os4CQ3p' },
         
       ],
