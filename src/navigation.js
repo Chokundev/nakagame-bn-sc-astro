@@ -158,6 +158,10 @@ export const footerData = {
       title: 'ติดต่อเรา',
       links: [
         { text: 'ติดต่อ', href: '/contact' },
+        { text: 'แจ้งเว็บไซต์มีปัญหา', href: 'https://nakagame-api.bn-sc.cloud' },
+        { text: 'Line : Support', href: 'https://bit.ly/nakagame-suppt' },
+        { text: 'Mail : Support', href: 'mailto:nakagame-suppt@bn-sc.cloud' },
+        
       ],
     },
   ],
