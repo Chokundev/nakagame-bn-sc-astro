@@ -10,6 +10,10 @@ export const headerData = {
       text: 'ข้อมูลนาคาเกมส์',
       links: [
         {
+          text: 'เกี่ยวกับคณะ',
+          href: getPermalink('/about-party'),
+        },
+        {
           text: 'สัญลักษณ์การแข่งขัน',
           href: getPermalink('/competition-symbol'),
         },

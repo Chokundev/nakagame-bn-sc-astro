@@ -1,0 +1,133 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'เกี่ยวกับคณะ',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    title='เกี่ยวกับคณะ'
+    subtitle='โรงเรียนวัดบวรนิเวศจัดระบบการปกครองนักเรียนออกเป็น 5 คณะ ดังนี้'
+  />
+
+ 
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        description:
+          'คณะ "วชิรญาณวงศ์" สีประจำคณะ "สีม่วง" มาจาก สมเด็จพระสังฆราชเจ้ากรมหลวงวชิรญาณวงศ์ สมเด็จพระสังฆราชพระองค์ที่ 13 แห่งกรุงรัตนโกสินทร์ ประทับอยู่ ณ วัดบวรนิเวศวิหาร',
+      },
+    ]}
+    image={{
+      src: 'https://medalrank-nakagame42.pages.dev/party/vachi.jpg',
+      alt: 'วชิรญาณวงศ์',
+    }}
+  >
+    <Fragment slot='content'>
+      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>คณะวชิรญาณวงศ์</h3>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    items={[
+      {
+        description:
+          'คณะ "ดำรงธรรมี"  สีประจำคณะ "สีฟ้า" มาจาก พระศรีบัญชา (ทวน ธรรมชีวะ) บริจาคทุนทรัพย์ สร้างเพื่ออุทิศถวายให้หลวงดำรงธรรมสาร ( มี ธรรมชีวะ) ผู้บิดา เป็นประทานชื่อว่า "ตึกดำรงธรรมี"',
+      },
+    ]}
+    image={{
+      src: 'https://medalrank-nakagame42.pages.dev/party/dumrong.jpg',
+      alt: 'ดำรงธรรมี',
+    }}
+  >
+    <Fragment slot='content'>
+      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>คณะดำรงธรรมี</h3>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    items={[
+      {
+        description:
+          'คณะ "รังสีสังวร"  สีประจำคณะ "สีเขียว" มาจาก วัดรังสีสุทธาวาส เป็นวัดที่เคยตั้งอยู่ก่อนบนพื้นที่บริเวณเดียวกับโรงเรียนวัดบวรนิเวศ นำเอามาผนวกกับคำว่าสังวรมากจาก สมเด็จพระญาณสังวร (ครั้งดำรงตำแหน่งพระราชาคณะ)  ',
+      },
+    ]}
+    image={{
+      src: 'https://medalrank-nakagame42.pages.dev/party/rangsri.jpg',
+      alt: 'รังษีสังวร',
+    }}
+  >
+    <Fragment slot='content'>
+      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>คณะรังษีสังวร</h3>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    items={[
+      {
+        description:
+          'คณะ "บวรนาคินทร์" สีประจำคณะ "สีแสด" มาจากพระนามของพระองค์เจ้ามนุษยนาคมานพหรือสมเด็จพระมหาสมณเจ้ากรมพระยาวชิรญาณวโรรส มาผนวกกับคำว่า บวร ซึ่งมีความหมายว่าพญานาคผู้พิทักษ์บวรนิเวศ',
+      },
+    ]}
+    image={{
+      src: 'https://medalrank-nakagame42.pages.dev/party/nakin.jpg',
+      alt: 'บวรนาคินทร์',
+    }}
+  >
+    <Fragment slot='content'>
+      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>คณะบวรนาคินทร์</h3>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    items={[
+      {
+        description:
+          'คณะ "อรพินทุ์พิสุทธิ์"  สีประจำคณะ "สีน้ำเงิน" มาจาก พระเจ้าบรมวงศ์เธอ พระองค์เจ้าอรพินทุ์เพ็ญภาค พระราชธิดาในพระบาทสมเด็จพระจุลจอมเกล้าเจ้าอยู่หัว ทรงสละทรัพย์ส่วนพระองค์สร้างอาคารเรียนหลังนี้พร้อมประทานชื่อว่า "อรพินทุ์"  เมื่อมีการตั้งชื่อคณะจึงเติมคำว่าพิสุทธิ์ลงไป จึงมีความหมายว่าดอกบัวที่บริสุทธิ์',
+      },
+    ]}
+    image={{
+      src: 'https://medalrank-nakagame42.pages.dev/party/orapin.jpg',
+      alt: 'อรพินทุ์พิสุทธิ์',
+    }}
+  >
+    <Fragment slot='content'>
+      <h3 class='text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2'>คณะอรพินทุ์พิสุทธิ์</h3>
+    </Fragment>
+  </Content>
+
+
+
+
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'ไปที่เพจ Bowonniwet Society',
+        href: 'https://www.facebook.com/profile.php?id=100064718254766',
+      },
+    ]}
+    title='สังคมคนนิยมบวรนิเวศ'
+    subtitle="ขอบคุณรูปภาพแต่ละคณะ จากเพจ Bowonniwet Society"
+  />
+</Layout>
