@@ -1,9 +1,7 @@
 ---
-const response = await fetch('https://script.google.com/macros/s/AKfycbyN-fjtDhtj6IX5BtwgnRXX2NumaCjSmFqcS6ctFSEZFnbp3VYJNTozI5-txzEJEL0/exec');
-const jsonData = await response.json();
-
-// Access the medalRank array
-const medalRank = jsonData || [];
+const initialData = await fetch('https://script.google.com/macros/s/AKfycbyN-fjtDhtj6IX5BtwgnRXX2NumaCjSmFqcS6ctFSEZFnbp3VYJNTozI5-txzEJEL0/exec');
+const jsonData = await initialData.json();
+const initialMedalRank = jsonData || [];
 ---
 
 <section class="flex flex-col justify-center antialiased text-gray-600 min-h-screen p-4">
@@ -35,8 +33,8 @@ const medalRank = jsonData || [];
                 </th>
               </tr>
             </thead>
-            <tbody class="text-sm divide-y divide-gray-100">
-              {medalRank.map((item) => (
+            <tbody id="medal-data" class="text-sm divide-y divide-gray-100">
+              {initialMedalRank.map((item) => (
                 <tr key={item.id}>
                   <td class="p-2 whitespace-nowrap">
                     <div class="flex items-center">
@@ -69,7 +67,48 @@ const medalRank = jsonData || [];
   <br />
   <center>
     <h5 class="p-5" id="time_stamp">
-      {medalRank.length > 0 ? medalRank[0].time_stamp : 'No timestamp available'}
+      {initialMedalRank.length > 0 ? initialMedalRank[0].time_stamp : 'No timestamp available'}
     </h5>
   </center>
 </section>
+
+<script>
+  window.onload = async () => {
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyN-fjtDhtj6IX5BtwgnRXX2NumaCjSmFqcS6ctFSEZFnbp3VYJNTozI5-txzEJEL0/exec');
+      const jsonData = await response.json();
+
+      const medalRank = jsonData || [];
+
+      const medalDataElement = document.getElementById('medal-data');
+      medalDataElement.innerHTML = medalRank.map((item) => `
+        <tr key="${item.id}">
+          <td class="p-2 whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
+                <img src="${item.img}" alt="${item.name}" width="100" height="50" />
+              </div>
+              <div class="font-medium text-gray-800">${item.name}</div>
+            </div>
+          </td>
+          <td class="p-2 whitespace-nowrap">
+            <div class="text-center text-yellow-400">${item.gold}</div>
+          </td>
+          <td class="p-2 whitespace-nowrap">
+            <div class="text-center font-medium text-gray-500">${item.silver}</div>
+          </td>
+          <td class="p-2 whitespace-nowrap">
+            <div class="text-center font-medium text-yellow-700">${item.bronze}</div>
+          </td>
+          <td class="p-2 whitespace-nowrap">
+            <div class="text-center font-medium text-black-500">${item.sum}</div>
+          </td>
+        </tr>
+      `).join('');
+
+      document.getElementById('time_stamp').textContent = medalRank.length > 0 ? medalRank[0].time_stamp : 'No timestamp available';
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+</script>
