@@ -73,7 +73,7 @@ const initialMedalRank = jsonData || [];
 </section>
 
 <script>
-  window.onload = async () => {
+  async function fetchData() {
     try {
       const response = await fetch('https://script.google.com/macros/s/AKfycbyN-fjtDhtj6IX5BtwgnRXX2NumaCjSmFqcS6ctFSEZFnbp3VYJNTozI5-txzEJEL0/exec');
       const jsonData = await response.json();
@@ -110,5 +110,11 @@ const initialMedalRank = jsonData || [];
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-  };
+  }
+
+  // Fetch data immediately when the page loads
+  fetchData();
+
+  // Fetch new data every 1000ms (1 second)
+  setInterval(fetchData, 1000);
 </script>
