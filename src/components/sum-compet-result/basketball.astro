@@ -7,7 +7,7 @@ const SumcompetResult = jsonData.SumcompetResult || [];
 <center class="mt-8">
     <img src="https://medalrank-nakagame42.pages.dev/Nakagame.svg" alt="" width="128px">
     <h1 class="text-xl font-semibold mt-4">สรุปอันดับการแข่งขันกีฬา</h1>
-    <h4>ประเภทกีฬา : <span id="type">{SumcompetResult[5]?.type}</span></h4>
+    <h4>ประเภทกีฬา : <span id="ss6_type">{SumcompetResult[5]?.type}</span></h4>
 </center>
 
 <div class="bg-white shadow-md rounded-md overflow-hidden max-w-lg mx-auto mt-16 mb-16">
@@ -21,7 +21,7 @@ const SumcompetResult = jsonData.SumcompetResult || [];
                 alt="Gold Rank"></span>
             
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="no1">{SumcompetResult[5]?.no1}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss6_no1">{SumcompetResult[5]?.no1}</h3>
             </div>
         </li>
         <li class="flex items-center py-4 px-6">
@@ -29,7 +29,7 @@ const SumcompetResult = jsonData.SumcompetResult || [];
                 alt="Silver Rank"></span>
             
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="no2">{SumcompetResult[5]?.no2}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss6_no2">{SumcompetResult[5]?.no2}</h3>
             </div>
         </li>
         <li class="flex items-center py-4 px-6">
@@ -37,21 +37,50 @@ const SumcompetResult = jsonData.SumcompetResult || [];
                 alt="Bronze Rank"></span>
             
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="no3">{SumcompetResult[5]?.no3}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss6_no3">{SumcompetResult[5]?.no3}</h3>
             </div>
         </li>
         <li class="flex items-center py-4 px-6">
             <span class="text-gray-700 text-lg font-medium mr-12 ml-4">4.</span>
                 
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="no4">{SumcompetResult[5]?.no4}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss6_no4">{SumcompetResult[5]?.no4}</h3>
             </div>
         </li>
         <li class="flex items-center py-4 px-6">
             <span class="text-gray-700 text-lg font-medium mr-12 ml-4">5.</span>
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="no5">{SumcompetResult[5]?.no5}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss6_no5">{SumcompetResult[5]?.no5}</h3>
             </div>
         </li>
     </ul>
 </div>
+
+<script>
+    async function fetchData() {
+      try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwJErG-ySxr_RQe1BBDzfkytKI2uZpUPPD4dtB-MxHzb8CuL-M4-IPb5mt1FwQZLgKx_g/exec');
+        const jsonData = await response.json();
+        const sumCompetResult = jsonData || [];
+  
+        document.getElementById('ss6_type').textContent = sumCompetResult[5]?.type;
+       
+        document.getElementById('ss6_no1').textContent = sumCompetResult[5]?.no1;
+        document.getElementById('ss6_no2').textContent = sumCompetResult[5]?.no2;
+        document.getElementById('ss6_no3').textContent = sumCompetResult[5]?.no3;
+        document.getElementById('ss6_no4').textContent = sumCompetResult[5]?.no4;
+        document.getElementById('ss6_no5').textContent = sumCompetResult[5]?.no5;
+        
+  
+        
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+  
+    // Fetch data immediately when the page loads
+    fetchData();
+  
+    // Fetch new data every 1000ms (1 second)
+    setInterval(fetchData, 1000);
+  </script>
