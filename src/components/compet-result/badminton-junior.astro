@@ -1,5 +1,5 @@
 ---
-const response = await fetch('https://script.google.com/macros/s/AKfycbxAI-0Xi5Rpk_PhkZSzCwZk8iedh3nL8fy6-FN2G5IQmwfy8GQS9pJoq2V4BupS5WUm/exec');
+const response = await fetch('https://api.bn-sc.cloud/nakagame/v1/compet-result');
 const jsonData = await response.json();
 const competResult = jsonData.competResult || [];
 ---
@@ -641,7 +641,7 @@ color: #CD7F32;
 <script>
   async function fetchData() {
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycby2he239Y7T-N_ccwHv9LCIPhsGeqSbqT8bOKWkQv1pLCI8Rbi7wXZWlsje-bYxumwB/exec');
+      const response = await fetch('https://api.bn-sc.cloud/nakagame/v1/compet-result');
       const jsonData = await response.json();
       const competResult = jsonData || [];
 
