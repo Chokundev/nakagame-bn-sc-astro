@@ -1,5 +1,5 @@
 ---
-const initialData = await fetch('https://api.bn-sc.cloud/nakagame/v1/medal-ranking');
+const initialData = await fetch('https://script.google.com/macros/s/AKfycbyN-fjtDhtj6IX5BtwgnRXX2NumaCjSmFqcS6ctFSEZFnbp3VYJNTozI5-txzEJEL0/exec');
 const jsonData = await initialData.json();
 const initialMedalRank = jsonData || [];
 ---
@@ -75,7 +75,7 @@ const initialMedalRank = jsonData || [];
 <script>
   async function fetchData() {
     try {
-      const response = await fetch('https://api.bn-sc.cloud/nakagame/v1/medal-ranking');
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyN-fjtDhtj6IX5BtwgnRXX2NumaCjSmFqcS6ctFSEZFnbp3VYJNTozI5-txzEJEL0/exec');
       const jsonData = await response.json();
 
       const medalRank = jsonData || [];
