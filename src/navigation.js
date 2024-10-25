@@ -143,7 +143,7 @@ export const footerData = {
       ],
     },
     {
-      title: 'สำหรับฝ่ายจัดการแข่งขัน',
+      title: 'สำหรับฝ่ายจัดการแข่งขันและกรรมการ',
       links: [
         { text: 'ระบบจัดการผลการแข่งขัน', href: 'https://nakagame-mis.bn-sc.cloud' },
         { text: 'คู่มือการใช้งานระบบ', href: 'https://drive.google.com/file/d/1kkGXFoyl3Ds-LUCtBSTrgsFIvr0GAURm/view' },
@@ -156,7 +156,6 @@ export const footerData = {
         { text: 'ระบบจัดการผลการแข่งขัน', href: 'https://nakagame-mis.bn-sc.cloud' },
         { text: 'จัดการสถานะการแจ้งปัญหา', href: 'https://report.bn-sc.cloud/manage' },
         { text: 'สถานะเว็บไซต์', href: 'https://status.bn-sc.cloud' },
-        { text: 'สถานะส่วนเสริมเว็บไซต์', href: 'https://nakagame-api-status.bn-sc.cloud/' },
         { text: 'API สำหรับนักพัฒนาระบบ', href: 'https://nakagame-api.bn-sc.cloud' },
       ],
     },
