@@ -1,14 +1,15 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import Prices from '~/components/widgets/Pricing.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Features3 from '~/components/widgets/Features3.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import News from '~/components/news.astro';
+
+const response = await fetch('https://script.google.com/macros/s/AKfycbyW2igpn5NRCIgeut-kMV-HtJKDZmd8JoEUBt3PLFAG0wqv4k7JcEf_G298tx8f5921/exec');
+const newsData = await response.json();
 
 const metadata = {
-  title: 'ประกาศจากฝ่ายจัดการแข่งขัน นาคาเกมส์',
+  title: 'ประกาศจากฝ่ายจัดการแข่งขัน',
 };
 ---
 
@@ -20,15 +21,50 @@ const metadata = {
     subtitle="การแข่งขันกีฬาระหว่างคณะ นาคาเกมส์"
   />
 
+  <div class="news-container">
+    {newsData.map(news => (
+      <News 
+        topics={news.topics}
+        title={news.title} 
+        content={news.content} 
+        date={news.date} 
+        author={news.author} 
+      />
+    ))}
+  </div>
+
 
   <!-- Features3 Widget ************** -->
 
-  <Features3
+  <!-- <Features3
     title="-ยังไม่พบประกาศจากฝ่ายจัดการแข่งขัน-"
     subtitle="ขณะนี้ยังไม่มีประกาศจากฝ่ายจัดการแข่งขัน"
     columns={2}
     classes={{ container: 'max-w-5xl' }}
-  />
+  /> -->
 
 
 </Layout>
+
+
+<style>
+  .news-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; /* Spacing between cards */
+    padding: 2rem; /* Padding around the grid */
+  }
+
+  /* Responsive layout: Switch to 2 columns on medium screens and 1 column on small screens */
+  @media (max-width: 1024px) {
+    .news-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .news-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
