@@ -21,16 +21,9 @@ const metadata = {
     subtitle="การแข่งขันกีฬาระหว่างคณะ นาคาเกมส์"
   />
 
-  <div class="news-container">
-    {newsData.map(news => (
-      <News 
-        topics={news.topics}
-        title={news.title} 
-        content={news.content} 
-        date={news.date} 
-        author={news.author} 
-      />
-    ))}
+  <div class="news-container" id="news-container">
+    <!-- Loading message -->
+    <p id="loading-message">กำลังโหลดข้อมูลข่าวประชาสัมพันธ์และประกาศ...</p>
   </div>
 
 
@@ -47,15 +40,59 @@ const metadata = {
 </Layout>
 
 
+<script>
+  async function fetchNews() {
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyW2igpn5NRCIgeut-kMV-HtJKDZmd8JoEUBt3PLFAG0wqv4k7JcEf_G298tx8f5921/exec');
+      const newsData = await response.json();
+
+      // Sort news data by `id` in descending order (assuming id format like 'N001', 'N002', etc.)
+      newsData.sort((a, b) => {
+        const idA = parseInt(a.id.substring(1)); // Remove 'N' and parse the number
+        const idB = parseInt(b.id.substring(1));
+        return idB - idA; // Sort in descending order
+      });
+
+      // Clear loading message
+      document.getElementById('loading-message').remove();
+
+      // Get the container to display the news cards
+      const newsContainer = document.getElementById('news-container');
+
+      // Generate HTML for each news item
+      newsData.forEach(news => {
+        const newsCard = document.createElement('div');
+        newsCard.classList.add('news-card');
+        newsCard.innerHTML = `
+          <div class="topics-tag">${news.topics}</div>
+          <h2 class="news-title">${news.title}</h2>
+          <p class="news-content">${news.content}</p>
+          <div class="news-footer">
+            <span>โพสต์เมื่อ: ${news.date}</span>
+            <span>โดย: ${news.author}</span>
+          </div>
+        `;
+        newsContainer.appendChild(newsCard);
+      });
+    } catch (error) {
+      console.error("Error fetching news data:", error);
+      document.getElementById('loading-message').innerText = "ไม่สามารถโหลดข่าวประชาสัมพันธ์ได้";
+    }
+  }
+
+  // Fetch news on page load
+  fetchNews();
+</script>
+
 <style>
   .news-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem; /* Spacing between cards */
-    padding: 2rem; /* Padding around the grid */
+    gap: 1.5rem;
+    padding: 2rem;
   }
 
-  /* Responsive layout: Switch to 2 columns on medium screens and 1 column on small screens */
+  /* Responsive design */
   @media (max-width: 1024px) {
     .news-container {
       grid-template-columns: repeat(2, 1fr);
@@ -66,5 +103,43 @@ const metadata = {
     .news-container {
       grid-template-columns: 1fr;
     }
+  }
+
+  /* Same styles for the news card as before */
+  .news-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .topics-tag {
+    background-color: #5BC0DE;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.25rem 1rem;
+    display: inline-block;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .news-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+
+  .news-content {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+
+  .news-footer {
+    font-size: 0.875rem;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
   }
 </style>
