@@ -1,0 +1,88 @@
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto p-4">
+      <div id="scheduleContainer" class="space-y-8">
+        <!-- ตารางการแข่งขันจะแสดงผลที่นี่ -->
+      </div>
+      <h6 class="pt-4 text-xs text-center">** หมายเหตุ : ตารางโปรแกรมการแข่งขัน จะแสดงผลได้ดีที่สุดบนจอคอมพิวเตอร์หรือในโหมดเด็กส์ทอป **</h6>
+    </div>
+  
+    <script>
+      // ฟังก์ชันสำหรับการฟอร์แมตวันที่ในฟอร์แมต ISO
+      function formatThaiDate(isoDateString) {
+        const months = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+        const date = new Date(isoDateString);
+  
+        const day = date.getDate();
+        const month = months[date.getMonth()];
+        const thaiYear = date.getFullYear() + 543;
+  
+        return `วันที่ ${day} ${month} พ.ศ. ${thaiYear}`;
+      }
+  
+      async function fetchCompetitionData() {
+        try {
+          // ดึงข้อมูลจาก API
+          const response = await fetch('https://script.google.com/macros/s/AKfycby3OWybzRffRm3A2Kd_IPAW9kYVpGlzo1uIC6H71fuiizjWStlAdkHVD9yQsJ464vzV/exec'); // เปลี่ยน URL ให้ตรงกับ API ของคุณ
+          const data = await response.json();
+  
+          // จัดกลุ่มข้อมูลตามวันที่
+          const groupedMatches = data.matches.reduce((acc, match) => {
+            if (!acc[match.match_date]) acc[match.match_date] = [];
+            acc[match.match_date].push(match);
+            return acc;
+          }, {});
+  
+          // อ้างอิงไปยัง container ที่จะแสดงตารางการแข่งขัน
+          const scheduleContainer = document.getElementById('scheduleContainer');
+          scheduleContainer.innerHTML = ''; // ล้างข้อมูลเก่าออกก่อน
+  
+          // วนลูปแต่ละกลุ่มของวันที่
+          for (const date in groupedMatches) {
+            const formattedDate = formatThaiDate(date);
+  
+            // สร้างส่วนของแต่ละวันที่
+            const dateSection = document.createElement('div');
+            dateSection.innerHTML = `
+              <h2 class="text-xl font-semibold mb-4">${formattedDate}</h2>
+              <div class="overflow-x-auto">
+                <table class="min-w-full bg-white shadow-md rounded border border-gray-200 mb-4">
+                  <thead>
+                    <tr class="bg-gray-200 text-gray-600 uppercase text-xs md:text-sm leading-normal">
+                      <th class="py-3 px-4 md:px-6 text-left">ประเภทกีฬา</th>
+                      <th class="py-3 px-4 md:px-6 text-left">คู่ที่</th>
+                      <th class="py-3 px-4 md:px-6 text-left">รายชื่อทีม</th>
+                      <th class="py-3 px-4 md:px-6 text-left">เวลา</th>
+                      <th class="py-3 px-4 md:px-6 text-left">สถานที่</th>
+                      <th class="py-3 px-4 md:px-6 text-left">หมายเหตุ</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-gray-700 text-xs md:text-sm font-light">
+                    ${groupedMatches[date].map(match => `
+                      <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-4 md:px-6 text-left whitespace-nowrap">${match.sport}</td>
+                        <td class="py-3 px-4 md:px-6 text-left">${match.match_id}</td>
+                        <td class="py-3 px-4 md:px-6 text-left">
+                          ${match.pairs.map(pair => `<div>${pair.team_a} vs ${pair.team_b}</div>`).join('')}
+                        </td>
+                        <td class="py-3 px-4 md:px-6 text-left">${match.match_time}</td>
+                        <td class="py-3 px-4 md:px-6 text-left">${match.venue}</td>
+                        <td class="py-3 px-4 md:px-6 text-left">${match.note || '-'}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            `;
+  
+            // เพิ่ม section ของวันที่ลงใน container
+            scheduleContainer.appendChild(dateSection);
+          }
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }
+  
+      // ดึงข้อมูลเมื่อโหลดหน้าเว็บ
+      window.addEventListener('load', fetchCompetitionData);
+    </script>
+  </body>

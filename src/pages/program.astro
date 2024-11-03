@@ -1,14 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import Prices from '~/components/widgets/Pricing.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Features3 from '~/components/widgets/Features3.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Program from '~/components/program.astro'
 
 const metadata = {
-  title: 'โปรแกรมการแข่งขัน นาคาเกมส์',
+  title: 'โปรแกรมการแข่งขัน',
 };
 ---
 
@@ -24,11 +21,13 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="-ยังไม่พบโปรแกรมการแข่งขัน-"
-    subtitle="โปรดอดใจรอ เมื่อเราได้ข้อมูลแล้วจะอัปเดตข้อมูลโดยไว"
+    title="-โปรแกรมการแข่งขันยังไม่สมบูรณ์-"
+    subtitle="อยู่ระหว่างการนำข้อมูลโปรแกรมการแข่งขันลงระบบ"
     columns={2}
     classes={{ container: 'max-w-5xl' }}
   />
+
+  <Program />
 
 
 </Layout>
