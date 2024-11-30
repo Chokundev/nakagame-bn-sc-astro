@@ -1,0 +1,27 @@
+---
+// Modal.astro
+import { useState } from "preact/hooks";
+
+const [isOpen, setIsOpen] = useState(true);
+
+const closeModal = () => {
+  setIsOpen(false);
+};
+---
+{isOpen && (
+  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white rounded-lg shadow-lg p-5">
+      <img 
+        src="/path/to/your/image.jpg" 
+        alt="Modal Content" 
+        class="w-full rounded-md"
+      />
+      <button 
+        class="mt-3 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+        onClick={closeModal}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
