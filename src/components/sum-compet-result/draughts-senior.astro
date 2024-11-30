@@ -7,7 +7,7 @@ const SumcompetResult = jsonData.SumcompetResult || [];
 <center class="mt-8">
     <img src="https://cdn.bn-sc.cloud/images/nakagame/logo.png" alt="" width="128px">
     <h1 class="text-xl font-semibold mt-4">สรุปอันดับการแข่งขันกีฬา</h1>
-    <h4>ประเภทกีฬา : <span id="ss8_type">{SumcompetResult[7]?.type}</span></h4>
+    <h4>ประเภทกีฬา : <span id="ss11_type">{SumcompetResult[10]?.type}</span></h4>
 </center>
 
 <div class="bg-white shadow-md rounded-md overflow-hidden max-w-lg mx-auto mt-16 mb-16">
@@ -21,7 +21,7 @@ const SumcompetResult = jsonData.SumcompetResult || [];
                 alt="Gold Rank"></span>
             
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="ss8_no1">{SumcompetResult[7]?.no1}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss11_no1">{SumcompetResult[10]?.no1}</h3>
             </div>
         </li>
         <li class="flex items-center py-4 px-6">
@@ -29,7 +29,7 @@ const SumcompetResult = jsonData.SumcompetResult || [];
                 alt="Silver Rank"></span>
             
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="ss8_no2">{SumcompetResult[7]?.no2}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss11_no2">{SumcompetResult[10]?.no2}</h3>
             </div>
         </li>
         <li class="flex items-center py-4 px-6">
@@ -37,20 +37,20 @@ const SumcompetResult = jsonData.SumcompetResult || [];
                 alt="Bronze Rank"></span>
             
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="ss8_no3">{SumcompetResult[7]?.no3}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss11_no3">{SumcompetResult[10]?.no3}</h3>
             </div>
         </li>
         <li class="flex items-center py-4 px-6">
             <span class="text-gray-700 text-lg font-medium mr-12 ml-4">4.</span>
                 
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="ss8_no4">{SumcompetResult[7]?.no4}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss11_no4">{SumcompetResult[10]?.no4}</h3>
             </div>
         </li>
         <li class="flex items-center py-4 px-6">
             <span class="text-gray-700 text-lg font-medium mr-12 ml-4">5.</span>
             <div class="flex-1">
-                <h3 class="text-lg font-medium text-gray-800" id="ss8_no5">{SumcompetResult[7]?.no5}</h3>
+                <h3 class="text-lg font-medium text-gray-800" id="ss11_no5">{SumcompetResult[10]?.no5}</h3>
             </div>
         </li>
     </ul>
@@ -63,13 +63,13 @@ const SumcompetResult = jsonData.SumcompetResult || [];
         const jsonData = await response.json();
         const sumCompetResult = jsonData || [];
   
-        document.getElementById('ss8_type').textContent = sumCompetResult[7]?.type;
+        document.getElementById('ss11_type').textContent = sumCompetResult[10]?.type;
        
-        document.getElementById('ss8_no1').textContent = sumCompetResult[7]?.no1;
-        document.getElementById('ss8_no2').textContent = sumCompetResult[7]?.no2;
-        document.getElementById('ss8_no3').textContent = sumCompetResult[7]?.no3;
-        document.getElementById('ss8_no4').textContent = sumCompetResult[7]?.no4;
-        document.getElementById('ss8_no5').textContent = sumCompetResult[7]?.no5;
+        document.getElementById('ss11_no1').textContent = sumCompetResult[10]?.no1;
+        document.getElementById('ss11_no2').textContent = sumCompetResult[10]?.no2;
+        document.getElementById('ss11_no3').textContent = sumCompetResult[10]?.no3;
+        document.getElementById('ss11_no4').textContent = sumCompetResult[10]?.no4;
+        document.getElementById('ss11_no5').textContent = sumCompetResult[10]?.no5;
         
   
         

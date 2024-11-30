@@ -63,16 +63,28 @@ export const headerData = {
           href: getPermalink('/compet-result/rov'),
         },
         {
-          text: 'PES : E-Football Mobile',
-          href: getPermalink('/compet-result/pes'),
-        },
-        {
           text: 'ซอคเกอร์ ม.ต้น',
           href: getPermalink('/compet-result/soccer-junior'),
         },
         {
           text: 'ซอคเกอร์ ม.ปลาย',
           href: getPermalink('/compet-result/soccer-senior'),
+        },
+        {
+          text: 'หมากฮอส ม.ต้น',
+          href: getPermalink('/compet-result/draughts-junior'),
+        },
+        {
+          text: 'หมากฮอส ม.ปลาย',
+          href: getPermalink('/compet-result/draughts-senior'),
+        },
+        {
+          text: 'โอเทลโล่ ม.ต้น',
+          href: getPermalink('/compet-result/othello-junior'),
+        },
+        {
+          text: 'โอเทลโล่ ม.ปลาย',
+          href: getPermalink('/compet-result/othello-senior'),
         },
       ],
     },
@@ -108,16 +120,28 @@ export const headerData = {
           href: getPermalink('/sum-compet-result/rov'),
         },
         {
-          text: 'PES : E-Football Mobile',
-          href: getPermalink('/sum-compet-result/pes'),
-        },
-        {
           text: 'ซอคเกอร์ ม.ต้น',
           href: getPermalink('/sum-compet-result/soccer-junior'),
         },
         {
           text: 'ซอคเกอร์ ม.ปลาย',
           href: getPermalink('/sum-compet-result/soccer-senior'),
+        },
+        {
+          text: 'หมากฮอส ม.ต้น',
+          href: getPermalink('/sum-compet-result/draughts-junior'),
+        },
+        {
+          text: 'หมากฮอส ม.ปลาย',
+          href: getPermalink('/sum-compet-result/draughts-senior'),
+        },
+        {
+          text: 'โอเทลโล่ ม.ต้น',
+          href: getPermalink('/sum-compet-result/othello-junior'),
+        },
+        {
+          text: 'โอเทลโล่ ม.ปลาย',
+          href: getPermalink('/sum-compet-result/othello-senior'),
         },
       ],
     },
